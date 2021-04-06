@@ -1,0 +1,40 @@
+<div class="login-container">
+  <div [formGroup]="loginForm" class="login-form">
+    <div class="title">Welcome.</div>
+    <div class="subtitle">Setup your free account today.</div>
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input matInput formControlName="email" placeholder="Enter e-mail" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        formControlName="password"
+        matInput
+        placeholder="Enter password"
+        type="password"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm password</mat-label>
+      <input
+        formControlName="confirm_password"
+        matInput
+        placeholder="Confirm password"
+        type="password"
+      />
+    </mat-form-field>
+    <mat-error *ngIf="showPasswordError" class="small text-danger">
+      Passwords don't match.
+    </mat-error>
+    <button
+      (click)="createUser()"
+      [disabled]="loginForm.status == 'INVALID'"
+      class="btn btn-light mt-5"
+    >
+      Create account
+    </button>
+  </div>
+</div>

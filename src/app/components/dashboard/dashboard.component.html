@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="user-details">
+    Welcome, {{ email }}
+    <button
+      (click)="logout()"
+      class="btn btn-light"
+    >
+      Logout
+    </button>
+  </div>
+  <div [formGroup]="eventForm" class="d-flex flex-wrap">
+    <div class="section-title">Add new event</div>
+    <div class="col-12">
+      <mat-form-field>
+        <mat-label>Event name*</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>Start date*</mat-label>
+        <input matInput type="date" formControlName="startDate"/>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>End date</mat-label>
+        <input matInput type="date" formControlName="endDate"/>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>Event recurrence</mat-label>
+        <input matInput formControlName="recurrence"/>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>Event duration</mat-label>
+        <input matInput formControlName="duration"/>
+      </mat-form-field>
+    </div>
+  <button
+    (click)="addEvent()"
+    [disabled]="eventForm.status == 'INVALID'"
+    class="btn btn-light ml-3"
+  >
+    Add
+  </button>
+  </div>
+
+  <div class="list">
+    <div class="section-title">Ongoing events</div>
+    <table class="table table-hover mt-4">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Recurrence</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events; let i = index">
+          <th scope="row">{{ event.name }}</th>
+          <td>{{ event.startDate }}</td>
+          <td>{{ event.endDate }}</td>
+          <td>{{ event.recurrence }}</td>
+          <td>{{ event.duration }}</td>
+          <td>
+            <button
+              (click)="removeEvent(i)"
+              class="btn btn-danger"
+            >
+              x
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

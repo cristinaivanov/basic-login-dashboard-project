@@ -1,0 +1,36 @@
+.user-details {
+  padding: 30px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-form-field {
+  width: 100%;
+  font-family: Arial;
+}
+
+.btn-light {
+  background-color: #3f51b5;
+  border-color: #3f51b5;
+  color: #f3f3f3;
+}
+
+.btn-light:hover {
+  background-color: #2a3a94;
+  border-color: #2a3a94;
+}
+
+.btn-light:focus {
+  outline: none;
+}
+
+.section-title {
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 25px;
+  color: #3f51b5;
+}
+
+.list {
+  padding-top: 50px;
+}
